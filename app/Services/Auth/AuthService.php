@@ -35,23 +35,14 @@ class AuthService
                 ];
             }else{
                 if ($user->status === 'A') {
-                    if (config('app.env') === 'production') {
-                        $user->tokens()->delete();
-                    }
+                    $user->tokens()->delete();
                     
                     $token = $user->createToken($user->email . '-' . Carbon::now()->format('d/m/Y-H:i'));
         
                     $now = Carbon::now();
                     $expires_at = Carbon::parse($token->accessToken->expires_at);
                     $expires_in = $expires_at->diffInRealHours($now);
-
-                    Log::create([
-                        'user_id' => $user->id,
-                        'action' => 'Login',
-                        'description' => 'Inicio de sesión',
-                        'ip' => request()->getClientIp(),
-                    ]);
-
+                    
                     $array = [
                         'message' => 'Inicio de sesión exitoso.',
                         'token' => $token->plainTextToken,
@@ -59,6 +50,13 @@ class AuthService
                         'expiresIn' => $expires_in . " horas",
                         'code' => Response::HTTP_OK
                     ];
+                    
+                    Log::create([
+                        'user_id' => $user->id,
+                        'action' => 'Login',
+                        'description' => 'Inicio de sesión',
+                        'ip' => request()->getClientIp(),
+                    ]);
                 }else{
                     $array = [
                         'success' => false,

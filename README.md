@@ -128,7 +128,7 @@ Servicio de registro de customers. Este endpoint es libre y no requiere autentic
 
 ## [API - Customers] index
 
-Servicio para el listado de customers activos. Este endpoint requiere autenticación para su uso. Mediante el middleware **searchesVerify** se valida la presencia y vigencia del token de autenticación. Este servicio retorna una lista paginada con todos los customers.
+Servicio para el listado de customers activos. Este endpoint requiere autenticación para su uso. Mediante el middleware **sanctumAuth** se valida la presencia y vigencia del token de autenticación. Este servicio retorna una lista paginada con todos los customers.
 
 ```http
   GET /api/customers/index
@@ -140,7 +140,7 @@ Servicio para el listado de customers activos. Este endpoint requiere autenticac
 
 ## [API - Customers] show
 
-Servicio de búsqueda de customers. Este endpoint requiere autenticación para su uso. Mediante el middleware **searchesVerify** se valida la presencia y vigencia del token de autenticación. La variable **search** pasada por parámetro de la ruta representa un **dni** o un **email** de un customer.
+Servicio de búsqueda de customers. Este endpoint requiere autenticación para su uso. Mediante el middleware **sanctumAuth** se valida la presencia y vigencia del token de autenticación. La variable **search** pasada por parámetro de la ruta representa un **dni** o un **email** de un customer.
 
 ```http
   GET /api/customers/show/{search}
@@ -153,7 +153,7 @@ Servicio de búsqueda de customers. Este endpoint requiere autenticación para s
 
 ## [API - Customers] delete
 
-Servicio para la eliminación lógica de customers. Este endpoint requiere autenticación para su uso. Mediante el middleware **searchesVerify** se valida la presencia y vigencia del token de autenticación. La variable **search** pasada por parámetro de la ruta representa un **dni** o un **email** de un customer.
+Servicio para la eliminación lógica de customers. Este endpoint requiere autenticación para su uso. Mediante el middleware **sanctumAuth** se valida la presencia y vigencia del token de autenticación. La variable **search** pasada por parámetro de la ruta representa un **dni** o un **email** de un customer.
 
 ```http
   DELETE /api/customers/delete/{search}
@@ -166,7 +166,7 @@ Servicio para la eliminación lógica de customers. Este endpoint requiere auten
 
 ## [API - Logs] index
 
-Servicio para la consulta de Logs. Este endpoint requiere autenticación para su uso. Mediante el middleware **searchesVerify** se valida la presencia y vigencia del token de autenticación. El servicio retorna una lista de los logs que se han generado tras cada acción en la API.
+Servicio para la consulta de Logs. Este endpoint requiere autenticación para su uso. Mediante el middleware **sanctumAuth** se valida la presencia y vigencia del token de autenticación. El servicio retorna una lista de los logs que se han generado tras cada acción en la API.
 
 ```http
   GET /api/logs/index

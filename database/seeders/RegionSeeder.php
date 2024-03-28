@@ -13,8 +13,24 @@ class RegionSeeder extends Seeder
      */
     public function run(): void
     {
-        Region::create([
-            'description' => 'Region test',
-        ]);
+        $regions = [
+            [ 'description' => 'Valencia Norte' ],
+            [ 'description' => 'Valencia Sur' ],
+            [ 'description' => 'Naguanagua' ],
+            [ 'description' => 'Los Guayos' ],
+            [ 'description' => 'Guacara' ],
+            [ 'description' => 'Ciudad Alianza' ],
+            [ 'description' => 'Paraparal' ],
+            [ 'description' => 'Plaza de Toros' ],
+            [ 'description' => 'La Isabelica' ],
+            [ 'description' => 'Puerto Cabello' ],
+            [ 'description' => 'Morón' ],
+            [ 'description' => 'San Joaquín' ],
+            [ 'description' => 'Mariara' ],
+        ];
+
+        foreach ($regions as $region) {
+            Region::create($region);
+        }
     }
 }

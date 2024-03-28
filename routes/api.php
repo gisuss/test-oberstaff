@@ -11,13 +11,13 @@ Route::group(['prefix' => 'auth'], function () {
     });
 });
 
-Route::group( ['middleware' => ['auth:sanctum']], function() {
+Route::group( ['middleware' => ['sanctumAuth']], function() {
     Route::group(['prefix' => 'customers'], function () {
-        Route::get('index', [App\Http\Controllers\Users\UserController::class, 'index'])->middleware('searchesVerify');
-        Route::get('show/{search}', [App\Http\Controllers\Users\UserController::class, 'show'])->middleware('searchesVerify');
-        Route::delete('delete/{search}', [App\Http\Controllers\Users\UserController::class, 'destroy'])->middleware('searchesVerify');
+        Route::get('index', [App\Http\Controllers\Users\UserController::class, 'index']);
+        Route::get('show/{search}', [App\Http\Controllers\Users\UserController::class, 'show']);
+        Route::delete('delete/{search}', [App\Http\Controllers\Users\UserController::class, 'destroy']);
     });
     Route::group(['prefix' => 'logs'], function () {
-        Route::get('index', [App\Http\Controllers\Logs\LogController::class, 'index'])->middleware('searchesVerify');
+        Route::get('index', [App\Http\Controllers\Logs\LogController::class, 'index']);
     });
 });
