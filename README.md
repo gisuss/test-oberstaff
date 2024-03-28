@@ -74,6 +74,7 @@ Caso contrario
 Para ejecutar correctamente este proyecto, debe validar que la variable de entorno **APP_ENV** esté inicialmente en **local** para que se generen todos los logs como se especifica en la prueba técnica y posteriormente setear a **production** para que no se almacenen los logs de salida.
 
 `APP_ENV`=local
+`APP_DEBUG`=false
 
 ## Usuario de Prueba generado con el seeder
 

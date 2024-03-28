@@ -6,7 +6,7 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('login', [App\Http\Controllers\Auth\AuthController::class, 'login'])->middleware('loginVerify');
     Route::post('register', [App\Http\Controllers\Users\UserController::class, 'store'])->middleware('registerVerify');
     
-    Route::group( ['middleware' => ['auth:sanctum']], function() {
+    Route::group( ['middleware' => ['sanctumAuth']], function() {
         Route::post('logout', [App\Http\Controllers\Auth\AuthController::class, 'logout']);
     });
 });
