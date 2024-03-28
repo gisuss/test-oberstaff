@@ -83,6 +83,10 @@ Para ejecutar correctamente este proyecto, debe validar que la variable de entor
   'password':  password
 ```
 
+## Colección de Postman
+
+Una colección de postman está añadida en el directorio del proyecto **/public/data**
+
 ## [API - Auth] login
 
 Servicio de inicio de sesión de usuarios. Mediante el middleware **loginVerify** se valida la presencia de **email** y **password** en la solicitud.
